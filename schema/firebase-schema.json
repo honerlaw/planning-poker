@@ -1,0 +1,64 @@
+{
+    "rules": {
+        "rooms": {
+            ".read": true,
+            "$roomId": {
+                "users": {
+                    "$userId": {
+                        ".read": true,
+                        ".write": true,
+                        "active": {
+                            ".read": true,
+                            ".write": true
+                        }
+                    }
+                }
+            }
+        },
+        "users": {
+            ".read": true,
+            "$userId": {
+                ".read": true,
+                ".write": true,
+                "name": {
+                    ".read": true,
+                    ".write": true
+                }
+            }
+        },
+        "poker": {
+            "$roomId": {
+                ".read": true,
+                ".write": true,
+                "state": {
+                    ".read": true,
+                    ".write": true
+                },
+                "cards": {
+                    "$cardId": {
+                        "index": {
+                            ".read": true,
+                            ".write": true
+                        },
+                        "displayName": {
+                            ".read": true,
+                            ".write": true
+                        },
+                        "value": {
+                            ".read": true,
+                            ".write": true
+                        }
+                    }
+                },
+                "votes": {
+                    "$userId": {
+                        "cardId": {
+                            ".read": true,
+                            ".write": true
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
