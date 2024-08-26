@@ -8,7 +8,7 @@ function usePlaceholder() {
     const { state: { poker } } = useFireBase()
 
     // if not in the results state or no votes, show a placeholder
-    return !poker || poker.state !== "results" || Object.keys(poker.votes).length === 0
+    return !poker || poker.state !== "results" || Object.keys(poker.votes || {}).length === 0
 }
 
 const Average: React.FC = () => {
