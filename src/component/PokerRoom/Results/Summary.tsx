@@ -54,7 +54,11 @@ const PokerCardVoteList: React.FC = () => {
             }
         })
 
-        return cards.map((card) => {
+        type CardType = typeof cards[0] & {
+            count: number
+        }
+
+        return cards.map((card): CardType => {
             return {
                 ...card,
                 count: cards.filter((c) => c.id === card.id).length
@@ -64,7 +68,7 @@ const PokerCardVoteList: React.FC = () => {
               accumulator.push(current);
             }
             return accumulator;
-          }, [] as typeof cards).sort((a, b) => {
+          }, [] as CardType[]).sort((a, b) => {
             return a.value - b.value
           })
     }, [placeholder, poker])
