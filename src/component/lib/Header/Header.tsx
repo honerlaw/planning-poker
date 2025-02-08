@@ -3,7 +3,11 @@ import icon from "../../../app/icon.svg"
 import Link from "next/link"
 import { Avatar } from "../Avatar"
 
-export const Header: React.FC = () => {
+type HeaderProps = {
+    showAvatar?: boolean
+}
+
+export const Header: React.FC<HeaderProps> = ({ showAvatar = true }) => {
     return <header className={"border-b p-6"}>
         <div className="flex flex-row justify-between items-center">
             <Link href={"/"}>
@@ -12,7 +16,7 @@ export const Header: React.FC = () => {
                     Planning Poker
                 </div>
             </Link>
-            <Avatar reverse />
+            {showAvatar && <Avatar reverse />}
         </div>
     </header>
 }

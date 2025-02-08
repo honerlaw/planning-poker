@@ -136,7 +136,7 @@ export const FireBaseProvider: React.FC<FireBaseProviderProps> = ({ roomId, user
         const roomRefUnSub = onValue(roomRef, (snapshot) => setRoomState(snapshot.val()), console.log);
 
         // get the user state when it changes
-        const usersRef = ref(database, `users`);
+        const usersRef = ref(database, `users/${roomId}`);
         const userRefUnSub = onValue(usersRef, (snapshot) => setUserState(snapshot.val()), console.log);
 
         // get the state for the poker game when it changes
@@ -153,12 +153,12 @@ export const FireBaseProvider: React.FC<FireBaseProviderProps> = ({ roomId, user
         }, console.log);
 
         // add to the users table
-        set(ref(database, `users/${userId}`), {
+        set(ref(database, `users/${roomId}/${userId}`), {
             name: userName
         })
 
         // delete our user on disconnect
-        const userRef = ref(database, `users/${userId}`);
+        const userRef = ref(database, `users/${roomId}/${userId}`);
         onDisconnect(userRef).remove()
 
         // add to the room
