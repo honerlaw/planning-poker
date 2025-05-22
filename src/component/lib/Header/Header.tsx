@@ -1,7 +1,7 @@
 import Image from "next/image"
 import icon from "../../../app/icon.svg"
 import Link from "next/link"
-import { Avatar } from "../Avatar"
+import { Avatar, EditableAvatar } from "../Avatar"
 
 type HeaderProps = {
     showAvatar?: boolean
@@ -16,7 +16,7 @@ export const Header: React.FC<HeaderProps> = ({ showAvatar = true }) => {
                     Planning Poker
                 </div>
             </Link>
-            {showAvatar && <Avatar reverse />}
+            {showAvatar && <EditableAvatar />}
         </div>
     </header>
 }

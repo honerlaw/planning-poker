@@ -1,0 +1,58 @@
+# Planning Poker Project - Custom Instructions
+
+## Special Commands
+- Ask Cline to "initialize memory bank" to activate project-specific knowledge and capabilities
+
+## Project Overview
+This is a Planning Poker application built with Next.js, React, TypeScript, and Firebase. Planning Poker is an agile estimation technique used by teams to estimate effort or relative size of development tasks.
+
+## Tech Stack
+- Next.js (React framework)
+- TypeScript
+- Tailwind CSS for styling
+- Firebase for real-time database and authentication
+
+## Code Organization
+- `/src/app`: Next.js app router pages and layouts
+- `/src/component`: React components
+  - `/lib`: Reusable UI components
+  - `/PokerRoom`: Components specific to the poker room functionality
+- `/src/provider`: Context providers and Firebase integration
+  - `/event`: Custom hooks for event handling
+  - `/util`: Firebase database utilities
+- `/src/util`: Utility functions
+
+## Development Guidelines
+
+### Component Structure
+- Follow the pattern of having index.tsx files that re-export components
+- Keep components focused on a single responsibility
+- Use TypeScript interfaces for props
+
+### State Management
+- Use Firebase for shared state across users
+- Use React context for application-wide state
+- Use local state for component-specific state
+
+### Styling
+- Use Tailwind CSS for styling
+- Follow the existing design patterns
+
+### Firebase Integration
+- Follow the schema defined in schema/firebase-schema.json
+- Use the FireBaseProvider for database operations
+- Implement proper error handling for all Firebase operations
+
+## Common Tasks
+- To add a new feature, create components in the appropriate directory
+- For UI components, add them to src/component/lib
+- For business logic, use the provider pattern in src/provider
+- Test changes in the poker room at /room/poker/[id]
+
+## Best Practices
+- Write clean, self-documenting code
+- Add appropriate TypeScript types
+- Follow the existing patterns in the codebase
+- Keep components small and focused
+- Use meaningful variable and function names
+- Implement proper error handling
